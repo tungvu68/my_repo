@@ -53,6 +53,13 @@ public class MainScreen extends AppCompatActivity {
             }
         });
 
+        btnSendToAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainScreen.this, FilePickerActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
