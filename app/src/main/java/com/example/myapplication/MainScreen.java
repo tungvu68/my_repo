@@ -33,7 +33,22 @@ public class MainScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Chuyển sang MainActivity khi click vào nút Call
                 Intent intent = new Intent(MainScreen.this, MainActivity.class);
-                intent.putExtra("number_a", 123);
+                startActivity(intent);
+            }
+        });
+
+        btnSMSAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainScreen.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnViewUrlAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainScreen.this, ViewUrlActivity.class);
                 startActivity(intent);
             }
         });
