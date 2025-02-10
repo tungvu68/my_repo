@@ -27,16 +27,12 @@ public class MainActivity extends AppCompatActivity {
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get phone number from EditText
                 String phone = edtPhone.getText().toString();
 
                 if (!phone.isEmpty()) {
-                    // Check permission
                     if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                        // Request permission if not granted
                         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
                     } else {
-                        // Make the call if permission granted
                         makeCall(phone);
                     }
                 } else {
