@@ -20,11 +20,9 @@ public class SMSActivity extends AppCompatActivity {
         findViewById(R.id.btnsms).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Retrieve the phone number and message
                 EditText edtPhone = findViewById(R.id.edtPhone);
                 String phone = edtPhone.getText().toString();
-
-                // Call the function to open SMS app
+                // We can add the string message to send
                 openSMSApp(phone, "");
             }
         });
@@ -33,12 +31,10 @@ public class SMSActivity extends AppCompatActivity {
     private void openSMSApp(String phoneNumber, String message) {
         // Create an implicit intent to open the SMS app
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("smsto:" + phoneNumber)); // The phone number is passed here
-        intent.putExtra("sms_body", "enter text"); // The message will be pre-filled
+        intent.setData(Uri.parse("smsto:" + phoneNumber));
+        intent.putExtra("sms_body", "enter text");
 
-        // Check if there's an app that can handle this intent
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent); // Open the SMS app
-        }
+        startActivity(intent);
+
     }
 }

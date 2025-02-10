@@ -40,7 +40,7 @@ public class MainScreen extends AppCompatActivity {
         btnSMSAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainScreen.this, MainActivity.class);
+                Intent intent = new Intent(MainScreen.this, SMSActivity.class);
                 startActivity(intent);
             }
         });

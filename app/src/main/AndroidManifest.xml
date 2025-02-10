@@ -4,6 +4,7 @@
     <!-- Quyền để thực hiện cuộc gọi điện thoại -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.ACTION_SENDTO" />
 
     <application
         android:allowBackup="true"
