@@ -15,14 +15,10 @@ public class IntentFilterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_intent_filter);
 
         myscreen = findViewById(R.id.myscreen);
-
-        // Lấy Intent từ Activity
         Intent intent = getIntent();
 
-        // Lấy URI từ Intent
         Uri link = intent.getData();
 
-        // Kiểm tra xem URI có hợp lệ không trước khi load URL
         if (link != null) {
             try {
                 // Load URL vào WebView
