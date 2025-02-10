@@ -1,8 +1,8 @@
 package com.example.myapplication;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -27,14 +27,17 @@ public class MainActivity extends AppCompatActivity {
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Get phone number from EditText
                 String phone = edtPhone.getText().toString();
 
                 if (!phone.isEmpty()) {
+                    // Check permission
                     if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        // Request permission if not granted
                         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
                     } else {
-                        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
-                        startActivity(intent);
+                        // Make the call if permission granted
+                        makeCall(phone);
                     }
                 } else {
                     edtPhone.setError("Please enter a phone number");
@@ -51,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
         if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 String phone = edtPhone.getText().toString();
