@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
         edtPhone = findViewById(R.id.edtPhone);
         btnCall = findViewById(R.id.btnCall);
 
+        Intent intent = getIntent();
+        String number_a = intent.getStringExtra("number_a");
+
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

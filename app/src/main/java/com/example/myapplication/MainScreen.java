@@ -31,11 +31,12 @@ public class MainScreen extends AppCompatActivity {
         btnCallAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Chuyển sang MainActivity khi click vào nút Call
                 Intent intent = new Intent(MainScreen.this, MainActivity.class);
+                intent.putExtra("number_a", 123);
+                startActivity(intent);
             }
         });
-
-
 
 
 
