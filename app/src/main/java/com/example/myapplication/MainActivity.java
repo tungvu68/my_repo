@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,8 +15,10 @@ import androidx.core.app.ActivityCompat;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtPhone;
-    Button btnCall;
+    Button btnCall, btnBack;
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         edtPhone = findViewById(R.id.edtPhone);
         btnCall = findViewById(R.id.btnCall);
+        btnBack = findViewById(R.id.btnBack);
 
         Intent intent = getIntent();
         String number_a = intent.getStringExtra("number_a");
@@ -41,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     edtPhone.setError("Please enter a phone number");
                 }
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
